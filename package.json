@@ -1,0 +1,31 @@
+{
+  "name": "assignment_01-back_end_development-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gagansidhu22/Assignment_01-Back_end_development-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gagansidhu22/Assignment_01-Back_end_development-/issues"
+  },
+  "homepage": "https://github.com/gagansidhu22/Assignment_01-Back_end_development-#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+  
+}
+
