@@ -25,3 +25,14 @@ describe("GET /api/v1/health", () => {
     });
 
 });
+
+describe("GET /api/v1/info", () => {
+    it("should return server info", async () => {
+        const response: Response = await request(app).get("/api/v1/info");
+        expect(response.status).toBe(200);
+        expect(response.body.name).toBe("MyApp");
+        expect(response.body).toHaveProperty("environment");
+        expect(response.body).toHaveProperty("port");
+        expect(response.body).toHaveProperty("timestamp");
+    });
+});
