@@ -20,4 +20,15 @@ app.get("/api/v1/health", (req: Request, res: Response) => {
     };
     res.json(health);
 });
+
+app.get("/api/v1/info", (req: Request, res: Response) => {
+    const info = {
+        name: "MyApp",
+        environment: process.env.NODE_ENV || "development",
+        port: Number(process.env.PORT) || 3000,
+        timestamp: new Date().toISOString(),
+    };
+    res.json(info);
+});
+
 export default app;
