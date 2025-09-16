@@ -5,7 +5,7 @@ describe('calculatePortfolioPerformance', () => {
         const result = calculatePortfolioPerformance(10000, 13000);
         expect(result.profitOrLoss).toBe(3000);
         expect(result.percentageChange).toBeCloseTo(30);
-        expect(result.performanceSummary).toContain('gained significantly');
+        expect(result.performanceSummary).toContain('gained rapidly');
     });
 
     test('should calculate loss correctly', () => {
