@@ -1,5 +1,11 @@
 import express, { Express, Request, Response } from "express";
-import { uptime } from "process";
+import {
+  calculatePortfolioPerformance,
+  findLargestHolding,
+  calculateAssetAllocation,
+  Asset
+} from "./portfolio/portfolioPerformance";
+
 const app: Express = express();
 
 app.get("/", (req: Request, res: Response) => {
@@ -29,6 +35,30 @@ app.get("/api/v1/info", (req: Request, res: Response) => {
         timestamp: new Date().toISOString(),
     };
     res.json(info);
+});
+
+const sampleAssets: Asset[] = [
+  { name: "Stocks", value: 5000 },
+  { name: "Bonds", value: 3000 },
+  { name: "Real Estate", value: 20000 },
+];
+
+const initialInvestment = 25000;
+const currentValue = sampleAssets.reduce((sum, asset) => sum + asset.value, 0);
+
+app.get("/api/v1/portfolio/performance", (req: Request, res: Response) => {
+  const performance = calculatePortfolioPerformance(initialInvestment, currentValue);
+  res.json(performance);
+});
+
+app.get("/api/v1/portfolio/largest-holding", (req: Request, res: Response) => {
+  const largest = findLargestHolding(sampleAssets);
+  res.json(largest);
+});
+
+app.get("/api/v1/portfolio/allocation", (req: Request, res: Response) => {
+  const allocation = calculateAssetAllocation(sampleAssets);
+  res.json(allocation);
 });
 
 export default app;
