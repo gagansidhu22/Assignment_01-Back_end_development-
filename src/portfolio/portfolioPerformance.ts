@@ -6,6 +6,7 @@ export interface PortfolioPerformance {
   performanceSummary: string;
 }
 
+// PortfolioPerformance Function
 export function calculatePortfolioPerformance(
   initialInvestment: number,
   currentValue: number
@@ -43,6 +44,7 @@ export interface Asset {
   value: number;  // Current value in dollars
 }
 
+// findLargest Holding function
 export function findLargestHolding(assets: Asset[]): Asset | null {
   if (assets.length === 0) return null;
 
@@ -56,6 +58,7 @@ export interface AssetAllocation {
   percentage: number; // Rounded to 2 decimals
 }
 
+// Asset Allocation Function
 export function calculateAssetAllocation(assets: Asset[]): AssetAllocation[] {
   const totalValue = assets.reduce((sum, asset) => sum + asset.value, 0);
 

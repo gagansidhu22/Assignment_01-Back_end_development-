@@ -11,6 +11,8 @@ const app: Express = express();
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello, World!");
 });    
+
+// Health End Point
 interface HealthResponse {
 status: string;
 uptime: number;
@@ -36,7 +38,7 @@ app.get("/api/v1/info", (req: Request, res: Response) => {
     };
     res.json(info);
 });
-
+// Portiofolio Check Point
 const sampleAssets: Asset[] = [
   { name: "Stocks", value: 5000 },
   { name: "Bonds", value: 3000 },
@@ -51,11 +53,14 @@ app.get("/api/v1/portfolio/performance", (req: Request, res: Response) => {
   res.json(performance);
 });
 
+// Largest holding check point
+
 app.get("/api/v1/portfolio/largest-holding", (req: Request, res: Response) => {
   const largest = findLargestHolding(sampleAssets);
   res.json(largest);
 });
 
+// Asset Allocation
 app.get("/api/v1/portfolio/allocation", (req: Request, res: Response) => {
   const allocation = calculateAssetAllocation(sampleAssets);
   res.json(allocation);
